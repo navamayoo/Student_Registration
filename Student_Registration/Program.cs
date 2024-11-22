@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Student_Registration.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 #region Database Configure
