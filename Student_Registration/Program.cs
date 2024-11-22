@@ -1,5 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Student_Registration.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
+#region Database Configure
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(options =>options.UseSqlServer(connectionString));
+#endregion
 // Add services to the container.
 
 builder.Services.AddControllers();
