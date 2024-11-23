@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Student_Registration.Data;
+using Student_Registration.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,5 +33,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapStudentEndpoints();
 
 app.Run();

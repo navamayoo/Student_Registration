@@ -1,5 +1,6 @@
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Student_Registration.Data;
 
 namespace Student_Registration.Controllers
 {
@@ -7,5 +8,12 @@ namespace Student_Registration.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
+        private readonly AppDbContext _appDbContext;
+
+        public StudentController(AppDbContext appDbContext)
+        {
+            _appDbContext = appDbContext;
+        }
+
     }
 }
