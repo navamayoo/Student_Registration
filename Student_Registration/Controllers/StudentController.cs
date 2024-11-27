@@ -16,5 +16,26 @@ namespace Student_Registration.Controllers
             _appDbContext = appDbContext;
         }
 
+                [HttpPost]
+        public ActionResult<Student>Create([FromBody]Student student)
+        {
+            _appDbContext.Students.Add(student);
+            _appDbContext.SaveChanges();
+            return Ok(student);
+        }
+
+        [HttpGet]
+        public ActionResult <IEnumerable<Student>> GetAll()
+        {
+            return _appDbContext.Students.ToList();
+        }
+
+        [HttpGet("{id:int}")]
+        public ActionResult<Student> GetById(int id)
+        {
+            var student = _appDbContext.Students.Find(id);
+            return Ok(student);
+        }
+
     }
 }
