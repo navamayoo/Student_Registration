@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Student_Registration.Data;
+using Student_Registration.Module;
 
 namespace Student_Registration.Controllers
 {

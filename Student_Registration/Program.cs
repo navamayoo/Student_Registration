@@ -34,6 +34,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapStudentEndpoints();
 
 app.Run();
