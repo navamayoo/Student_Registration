@@ -38,5 +38,13 @@ namespace Student_Registration.Controllers
             return Ok(student);
         }
 
+        [HttpPut]
+        public ActionResult<Student> Update([FromBody] Student student)
+        {
+            _appDbContext.Students.Update(student);
+            _appDbContext.SaveChanges();
+            return Ok();
+        }
+
     }
 }
