@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Student_Registration.Data;
 using Student_Registration.Module;
+
 
 namespace Student_Registration.Controllers
 {
@@ -35,6 +36,14 @@ namespace Student_Registration.Controllers
         {
             var student = _appDbContext.Students.Find(id);
             return Ok(student);
+        }
+
+        [HttpPut]
+        public ActionResult<Student> Update([FromBody] Student student)
+        {
+            _appDbContext.Students.Update(student);
+            _appDbContext.SaveChanges();
+            return Ok();
         }
 
     }

@@ -10,6 +10,5 @@ namespace Student_Registration.Data
         }  
 
        public  DbSet<Student> Students { get; set; }
-        
     }
 }
