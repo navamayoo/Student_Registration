@@ -50,6 +50,10 @@ namespace Student_Registration.Controllers
         public ActionResult DeleteById(int id)
         {
             var student =_appDbContext.Students.Find(id);
+            if (student == null)
+            {
+                return NotFound(new { Message = $"Student with ID {id} not found." });
+            }
             _appDbContext.Students.Remove(student);
             _appDbContext.SaveChanges();
             return Ok();
