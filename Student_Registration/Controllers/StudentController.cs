@@ -38,12 +38,25 @@ namespace Student_Registration.Controllers
             return Ok(student);
         }
 
-        [HttpPut]
+        [HttpPut("{id:int}")]
         public ActionResult<Student> Update([FromBody] Student student)
         {
             _appDbContext.Students.Update(student);
             _appDbContext.SaveChanges();
             return Ok();
+        }
+
+        [HttpDelete("{id:int}")]
+        public ActionResult DeleteById(int id)
+        {
+            var student =_appDbContext.Students.Find(id);
+            if (student == null)
+            {
+                return NotFound(new { Message = $"Student with ID {id} not found." });
+            }
+            _appDbContext.Students.Remove(student);
+            _appDbContext.SaveChanges();
+            return Ok(new { Message = $"Student with ID {id} was successfully deleted." });
         }
 
     }
