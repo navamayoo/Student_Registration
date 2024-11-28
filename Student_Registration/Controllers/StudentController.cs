@@ -56,7 +56,7 @@ namespace Student_Registration.Controllers
             }
             _appDbContext.Students.Remove(student);
             _appDbContext.SaveChanges();
-            return Ok();
+            return Ok(new { Message = $"Student with ID {id} was successfully deleted." });
         }
 
     }
